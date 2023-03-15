@@ -99,3 +99,5 @@ resources:
 - ./manifests/setup/0servicemonitorCustomResourceDefinition.yaml
 - ./manifests/setup/0thanosrulerCustomResourceDefinition.yaml
 - ./manifests/setup/namespace.yaml
+patchesStrategicMerge:
+- ./patches/prometheusecret.yaml
