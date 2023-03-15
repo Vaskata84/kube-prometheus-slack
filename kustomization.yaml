@@ -4,7 +4,7 @@ resources:
 - grafana-ingress.yaml
 - prometheus-ingress.yaml
 - alertmanager-ingress.yaml
-- dynamic/additional-scrape-configs.yaml
+- ./dynamic/additional-scrape-configs.yaml
 - ./manifests/alertmanager-alertmanager.yaml
 - ./manifests/alertmanager-networkPolicy.yaml
 - ./manifests/alertmanager-podDisruptionBudget.yaml
@@ -98,5 +98,5 @@ resources:
 - ./manifests/setup/0servicemonitorCustomResourceDefinition.yaml
 - ./manifests/setup/0thanosrulerCustomResourceDefinition.yaml
 - ./manifests/setup/namespace.yaml
-#patchesStrategicMerge:
+patchesStrategicMerge:
 - ./patches/prometheusecret.yaml
