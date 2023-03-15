@@ -1,11 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- ./ingress/grafana-ingress.yaml
-- ./ingress/prometheus-ingress.yaml
-- ./ingress/alertmanager-ingress.yaml
+- grafana-ingress.yaml
+- prometheus-ingress.yaml
+- alertmanager-ingress.yaml
 - ./dynamic/additional-scrape-configs.yaml
-- ./dynamic/prometheusecret.yaml
 - ./manifests/alertmanager-alertmanager.yaml
 - ./manifests/alertmanager-networkPolicy.yaml
 - ./manifests/alertmanager-podDisruptionBudget.yaml
