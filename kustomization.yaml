@@ -99,4 +99,4 @@ resources:
 - ./manifests/setup/0thanosrulerCustomResourceDefinition.yaml
 - ./manifests/setup/namespace.yaml
 #patchesStrategicMerge:
-- ./patches/prometheusecret.yaml
+#- ./patches/prometheusecret.yaml
