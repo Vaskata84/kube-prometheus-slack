@@ -1,6 +1,6 @@
 apiVersion: v1
 data:
-  prometheus-additional.yaml: c2NyYXBlX2NvbmZpZ3M6CiAgLSBqb2JfbmFtZTogJ3NubXAnCiAgICBzdGF0aWNfY29uZmlnczoKICAgICAgLSB0YXJnZXRzOgogICAgICAgIC0gMTkyLjE2OC44OC4xICAjIFNOTVAgZGV2aWNlLgogICAgICAgIC0gc3dpdGNoL
+  prometheus-additional.yaml: c2NyYXBlX2NvbmZpZ3M6CiAgLSBqb2JfbmFtZTogJ01Ja3JvdGlrJwogICAgc3RhdGljX2NvbmZpZ3M6CiAgICAgIC0gdGFyZ2V0czoKICAgICAg
 kind: Secret
 metadata:
   creationTimestamp: null
