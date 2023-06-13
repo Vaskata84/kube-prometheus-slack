@@ -102,3 +102,7 @@ resources:
 - ./manifests/setup/namespace.yaml
 patches:
 - path: ./patches/prometheusecret.yaml
+  target:
+    version: v1
+    kind: Prometheus
+    name: k8s
