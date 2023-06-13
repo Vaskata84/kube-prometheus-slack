@@ -5,23 +5,23 @@ on:
   schedule:
     - cron: '37 7 * * 1'
 env:
-  golang-version: '1.18'
+  golang-version: '1.19'
 jobs:
   versions:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         branch:
-          - 'release-0.8'
           - 'release-0.9'
           - 'release-0.10'
           - 'release-0.11'
+          - 'release-0.12'
           - 'main'
     steps:
     - uses: actions/checkout@v3
       with:
         ref: ${{ matrix.branch }}
-    - uses: actions/setup-go@v3
+    - uses: actions/setup-go@v4
       with:
         go-version: ${{ env.golang-version }}
     - name: Upgrade versions
@@ -46,7 +46,7 @@ jobs:
           git checkout -- jsonnetfile.lock.json;
         fi
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v4
+      uses: peter-evans/create-pull-request@v5
       with:
         commit-message: "[bot] [${{ matrix.branch }}] Automated version update"
         title: "[bot] [${{ matrix.branch }}] Automated version update"
