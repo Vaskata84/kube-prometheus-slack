@@ -3,7 +3,6 @@
     static_configs:
       - targets:
         - 192.168.88.1  # SNMP device.
-        - 192.168.88.200 # SNMP device.
     metrics_path: /snmp
     params:
       module: [if_mib]
@@ -13,4 +12,4 @@
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: 10.101.153.234:9116  # The SNMP exporter's real hostname:port.
+        replacement: 0.0.0.0:9116  # The SNMP exporter's real hostname:port.
