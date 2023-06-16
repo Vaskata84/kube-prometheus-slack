@@ -32,4 +32,5 @@
 - job_name: NFS-Server
     static_configs:
       - targets:
-        - 192.168.88.10  # SNMP device.
+        - 192.168.88.10
+        replacement: 10.101.153.234:9116
