@@ -6,10 +6,11 @@
 - job_name: 'Mikrotik'
   scrape_interval: 5s
   static_configs:
-    - targets: ['192.168.88.1']
-  metrics_path: /metrics
+    - targets: 
+      - 192.168.88.1
+  metrics_path: /snmp
   params:
-    module: [my_router]
+    module: [if_mib]
   relabel_configs:
     - source_labels: [__address__]
       target_label: __param_target
