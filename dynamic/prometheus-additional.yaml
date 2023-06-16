@@ -27,4 +27,4 @@
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: 192.168.88.10:9100
+        replacement: localhost:9100
