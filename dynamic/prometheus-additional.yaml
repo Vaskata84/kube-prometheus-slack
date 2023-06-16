@@ -4,7 +4,7 @@
         - 192.168.88.10
     metrics_path: /metrics
     params:
-      module: [my_router]
+      module: [if_mib]
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
