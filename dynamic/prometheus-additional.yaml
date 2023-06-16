@@ -1,6 +1,4 @@
 #scrape_configs:
-global:
-  scrape_interval: 10s
   - job_name: 'Mikrotik'
     static_configs:
       - targets:
