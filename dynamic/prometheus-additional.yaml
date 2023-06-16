@@ -14,23 +14,17 @@
       - target_label: __address__
         replacement: 10.101.153.234:9116  # The SNMP exporter's real hostname:port.
  
-#  - job_name: 'NFS_Server'
-#    static_configs:
-#      - targets:
-#        - 192.168.88.10  # SNMP device.
-#    metrics_path: /snmp
-#    params:
-#      module: [if_mib]
-#    relabel_configs:
-#      - source_labels: [__address__]
-#        target_label: __param_target
-#      - source_labels: [__param_target]
-#        target_label: instance
-#      - target_label: __address__
-#        replacement: 10.101.153.234:9116  # The SNMP exporter's real hostname:port.
-        
-- job_name: NFS-Server
+  - job_name: NFS_Server
     static_configs:
       - targets:
-        - 192.168.88.10
-        replacement: 10.101.153.234:9116
+        - 192.168.88.10  # SNMP device.
+    metrics_path: /snmp
+    params:
+      module: [if_mib]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 192.168.88.10:9100  # The SNMP exporter's real hostname:prot.
