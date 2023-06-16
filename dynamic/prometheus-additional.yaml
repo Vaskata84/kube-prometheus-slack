@@ -1,7 +1,4 @@
-#scrape_configs:
-#global:
-#  scrape_interval: 10s
-  - job_name: 'Mikrotik'
+- job_name: 'Mikrotik'
     static_configs:
       - targets:
         - 192.168.88.1  # SNMP device.
@@ -17,7 +14,6 @@
         replacement: 10.101.153.234:9116  # The SNMP exporter's real hostname:port.
  
   - job_name: 'NFS_Server'
-    scrape_interval: 5s
     static_configs:
       - targets:
         - 192.168.88.10  # Node-exporter device.
