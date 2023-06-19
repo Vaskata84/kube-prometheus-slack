@@ -3,12 +3,12 @@
   static_configs:
     - targets: ['192.168.88.10:9100']
 
-- job_name: 'node_exporter_haproxy'
+- job_name: 'node_exporter_lb1haproxy'
   scrape_interval: 5s
   static_configs:
     - targets: ['192.168.88.51:9100']
     
-- job_name: 'node_exporter_haproxy'
+- job_name: 'node_exporter_lb2haproxy'
   scrape_interval: 5s
   static_configs:
     - targets: ['192.168.88.52:9100']
