@@ -113,9 +113,9 @@ patches:
     kind: Prometheus
     name: k8s
     namespace: monitoring
-- path: ./patches/grafana_pvc.yaml
-  target:
-    version: apps/v1
-    kind: grafana-pvc
-    name: k8s
-    namespace: monitoring
+#- path: ./patches/grafana_pvc.yaml
+#  target:
+#    version: apps/v1
+#    kind: grafana-pvc
+#    name: k8s
+#    namespace: monitoring
