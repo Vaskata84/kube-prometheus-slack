@@ -107,7 +107,7 @@ patches:
     kind: Prometheus
     name: k8s
 - path: ./patches/add_pvc.yaml
-    target:
+  target:
     version: v1
     kind: Prometheus
     name: k8s
