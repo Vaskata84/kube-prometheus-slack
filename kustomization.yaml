@@ -106,3 +106,9 @@ patches:
     version: v1
     kind: Prometheus
     name: k8s
+- path: ./patches/add_pvc.yaml
+    target:
+    version: v1
+    kind: Prometheus
+    name: k8s
+    namespace: monitoring
