@@ -1,11 +1,13 @@
-apiVersion: v1
+apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
-  name: sc-nfs-pvc
+  name: k8s
+  namespace: monitoring
 spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: nfs-client
-  resources:
-    requests:
-      storage: 10Gi            
+  storage:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: nfs-client
+        resources:
+          requests:
+            storage: 5Gi      
