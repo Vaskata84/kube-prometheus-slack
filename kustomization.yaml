@@ -108,7 +108,7 @@ patches:
     name: k8s
 - path: ./patches/add_pvc.yaml
   target:
-    version: monitoring.coreos.com/v1
+    version: v1
     kind: Prometheus
     name: k8s
     namespace: monitoring
