@@ -1,1 +1,13 @@
-
+apiVersion: monitoring.coreos.com/v1
+kind: grafana
+metadata:
+  name: k8s
+  namespace: monitoring
+spec:
+  storage:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: nfs-client
+        resources:
+          requests:
+            storage: 5Gi  
