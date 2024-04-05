@@ -110,5 +110,5 @@ patches:
   target:
     version: monitoring.coreos.com/v1
     kind: Prometheus
-    name: sc-nfs-pvc
+    name: k8s
     namespace: monitoring
