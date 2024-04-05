@@ -108,7 +108,7 @@ patches:
     name: k8s
 - path: ./patches/add_pvc.yaml
   target:
-    version: v1
-    kind: PersistentVolumeClaim
+    version: monitoring.coreos.com/v1
+    kind: Prometheus
     name: sc-nfs-pvc
     namespace: monitoring
