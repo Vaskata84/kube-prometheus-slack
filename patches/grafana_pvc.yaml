@@ -1,13 +1,12 @@
-apiVersion: monitoring.coreos.com/v1
-kind: grafana
+apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-  name: k8s
+  name: grafana-pvc
   namespace: monitoring
 spec:
-  storage:
-    volumeClaimTemplate:
-      spec:
-        storageClassName: nfs-client
-        resources:
-          requests:
-            storage: 5Gi  
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: nfs-client
