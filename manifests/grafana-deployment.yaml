@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/component: grafana
     app.kubernetes.io/name: grafana
     app.kubernetes.io/part-of: kube-prometheus
-    app.kubernetes.io/version: 9.5.2
+    app.kubernetes.io/version: 8.4.5
   name: grafana
   namespace: monitoring
 spec:
@@ -18,19 +18,19 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/grafana-config: f6c93c986d2c50845c10914e382be89d
-        checksum/grafana-dashboardproviders: d745af05a8a365888f1900debe97c976
-        checksum/grafana-datasources: ce571e301f5c58c0119e126342cdf81c
+        checksum/grafana-config: 813d4bf6c9d7cac884a9fa2261205c2d
+        checksum/grafana-dashboardproviders: e9459f6ac64d3855b06645176035b1f2
+        checksum/grafana-datasources: 57939af14bc401215e5364bbe0f81094
       labels:
         app.kubernetes.io/component: grafana
         app.kubernetes.io/name: grafana
         app.kubernetes.io/part-of: kube-prometheus
-        app.kubernetes.io/version: 9.5.2
+        app.kubernetes.io/version: 8.4.5
     spec:
       automountServiceAccountToken: false
       containers:
       - env: []
-        image: grafana/grafana:9.5.2
+        image: grafana/grafana:8.4.5
         name: grafana
         ports:
         - containerPort: 3000
@@ -52,8 +52,6 @@ spec:
             drop:
             - ALL
           readOnlyRootFilesystem: true
-          seccompProfile:
-            type: RuntimeDefault
         volumeMounts:
         - mountPath: /var/lib/grafana
           name: grafana-storage
@@ -85,9 +83,6 @@ spec:
         - mountPath: /grafana-dashboard-definitions/0/k8s-resources-cluster
           name: grafana-dashboard-k8s-resources-cluster
           readOnly: false
-        - mountPath: /grafana-dashboard-definitions/0/k8s-resources-multicluster
-          name: grafana-dashboard-k8s-resources-multicluster
-          readOnly: false
         - mountPath: /grafana-dashboard-definitions/0/k8s-resources-namespace
           name: grafana-dashboard-k8s-resources-namespace
           readOnly: false
@@ -117,9 +112,6 @@ spec:
           readOnly: false
         - mountPath: /grafana-dashboard-definitions/0/node-rsrc-use
           name: grafana-dashboard-node-rsrc-use
-          readOnly: false
-        - mountPath: /grafana-dashboard-definitions/0/nodes-darwin
-          name: grafana-dashboard-nodes-darwin
           readOnly: false
         - mountPath: /grafana-dashboard-definitions/0/nodes
           name: grafana-dashboard-nodes
@@ -156,9 +148,10 @@ spec:
         runAsUser: 65534
       serviceAccountName: grafana
       volumes:
-        name: grafana-storage
+      - name: grafana-storage
         persistentVolumeClaim:
-         claimName: grafana-storage
+          claimName: grafana-pvc
+      - name: grafana-datasources
         secret:
           secretName: grafana-datasources
       - configMap:
@@ -185,9 +178,6 @@ spec:
       - configMap:
           name: grafana-dashboard-k8s-resources-cluster
         name: grafana-dashboard-k8s-resources-cluster
-      - configMap:
-          name: grafana-dashboard-k8s-resources-multicluster
-        name: grafana-dashboard-k8s-resources-multicluster
       - configMap:
           name: grafana-dashboard-k8s-resources-namespace
         name: grafana-dashboard-k8s-resources-namespace
@@ -218,9 +208,6 @@ spec:
       - configMap:
           name: grafana-dashboard-node-rsrc-use
         name: grafana-dashboard-node-rsrc-use
-      - configMap:
-          name: grafana-dashboard-nodes-darwin
-        name: grafana-dashboard-nodes-darwin
       - configMap:
           name: grafana-dashboard-nodes
         name: grafana-dashboard-nodes
