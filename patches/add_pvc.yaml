@@ -7,7 +7,7 @@ spec:
   storage:
     volumeClaimTemplate:
       spec:
-        storageClassName: gp3
+        storageClassName: nfs-client
         resources:
           requests:
-            storage: 100Gi
+            storage: 10Gi
