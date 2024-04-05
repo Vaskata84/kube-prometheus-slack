@@ -115,6 +115,6 @@ patches:
 - path: ./patches/grafana_pvc.yaml
   target:
     version: apps/v1
-    kind: Deployment
+    kind: grafana-pvc
     name: k8s
     namespace: monitoring
